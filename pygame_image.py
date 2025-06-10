@@ -21,16 +21,32 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
         key_lst = pg.key.get_pressed()
+        # if key_lst[pg.K_UP]:#上キーが押されたら上に移動
+        #     kk_rct.move_ip((0,-1))
+        # if key_lst[pg.K_DOWN]:
+        #     kk_rct.move_ip((0,1))
+        # if key_lst[pg.K_RIGHT]:
+        #     kk_rct.move_ip((1,0))
+        # else:
+        #     kk_rct.move_ip((-1,0))
+        # if key_lst[pg.K_LEFT]:
+        #     kk_rct.move_ip((-1,0))
+            
+        move_x = 0
+        move_y = 0
         if key_lst[pg.K_UP]:#上キーが押されたら上に移動
-            kk_rct.move_ip((0,-1))
+            move_y = -1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip((0,1))
+            move_y = 1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip((1,0))
+            move_x = 1
         else:
-            kk_rct.move_ip((-1,0))
+            move_x = -1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip((-1,0))
+            move_x = -2
+        kk_rct.move_ip((move_x,move_y))
+        
+        
         
 
         x = tmr%3200
